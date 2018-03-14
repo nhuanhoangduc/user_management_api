@@ -56,7 +56,7 @@ UserRepository.updateUser = async function (userId, user) {
 
         await UserModel.update(
             { _id: userId },
-            user
+            { ...user, updatedTime: Date.now() },
         );
 
         return user;
